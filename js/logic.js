@@ -3,6 +3,14 @@
 // let gamesWon = 0;
 // let gamesLost = 0;
 
+let gamesPlayed = 0;
+let gamesWon = 0;
+let gamesLost= 0;
+
+let displayWon = document.getElementById('won'); // to show games won
+let displayLost = document.getElementById('lost'); // to show games lost
+let displayPlayed = document.getElementById('played'); // shows games played
+
 // main gameplay function
 function flipCoin(x) {
     let pick = x; // pick is set to the passed-in parameter (from html)
@@ -24,23 +32,38 @@ function flipCoin(x) {
     let status; // to hold the result of the guess
     if (pick === toss ) {
         status = "Won";
-        // gamesWon++; // increments win counter
+        gamesWon++; // increments win counter
     } else {
         status = 'Lost';
-        // gamesLost++; // increments loss counter
+        gamesLost++; // increments loss counter
     }
 
-    // gamesPlayed++; // increments games count
+    gamesPlayed++; // increments games count
 
     // read-outs of the game results
     choice.innerText = pick;
     flip.innerText = toss;
     result.innerText = status;
 
-    // // updates game history
-    // displayPlayed.innerText = gamesPlayed;
-    // displayWon.innerText = gamesWon;
-    // displayLost.innerText = gamesLost;
+    // updates game history
+    displayPlayed.innerText = gamesPlayed;
+    displayWon.innerText = gamesWon;
+    displayLost.innerText = gamesLost;
+}
+
+function resetScore() {
+
+    gamesPlayed = 0;
+    gamesWon = 0;
+    gamesLost = 0;
+
+    
+
+    // updates game history
+    displayPlayed.innerText = gamesPlayed;
+    displayWon.innerText = gamesWon;
+    displayLost.innerText = gamesLost;
+
 }
 
 // // resets the scoreboard, invoked from onclick in html
